@@ -1,5 +1,5 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 import {
   HomeScreen,
@@ -8,6 +8,9 @@ import {
   ForgotPasswordScreen,
   Dashboard,
   PageNotFound,
+  DetailScreen,
+  CategoryAccountScreen,
+  AccountsScreen,
 } from './screens';
 
 const Router = createStackNavigator(
@@ -18,11 +21,14 @@ const Router = createStackNavigator(
     ForgotPasswordScreen,
     Dashboard,
     PageNotFound,
+    DetailScreen,
+    CategoryAccountScreen,
+    AccountsScreen,
   },
   {
     initialRouteName: 'HomeScreen',
     headerMode: 'none',
-  }
+  },
 );
 
 export default createAppContainer(Router);

@@ -1,19 +1,18 @@
-import React, { memo } from 'react';
-import { StyleSheet } from 'react-native';
-import { Button as PaperButton } from 'react-native-paper';
-import { theme } from '../core/theme';
+import React, {memo} from 'react';
+import {StyleSheet} from 'react-native';
+import {Button as PaperButton} from 'react-native-paper';
+import {theme} from '../core/theme';
 
-const Button = ({ mode, style, children, ...props }) => (
+const Button = ({mode, style, children, ...props}) => (
   <PaperButton
     style={[
       styles.button,
-      mode === 'outlined' && { backgroundColor: theme.colors.surface },
+      mode === 'outlined' && {backgroundColor: theme.colors.surface},
       style,
     ]}
     labelStyle={styles.text}
     mode={mode}
-    {...props}
-  >
+    {...props}>
     {children}
   </PaperButton>
 );

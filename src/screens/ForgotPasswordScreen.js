@@ -1,25 +1,25 @@
-import React, { memo, useState } from 'react';
-import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { phoneValidator, accountValidator } from '../core/utils';
+import React, {memo, useState} from 'react';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {phoneValidator, accountValidator} from '../core/utils';
 import Background from '../components/Background';
 import BackButton from '../components/BackButton';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
 import TextInput from '../components/TextInput';
-import { theme } from '../core/theme';
+import {theme} from '../core/theme';
 import Button from '../components/Button';
 
-const ForgotPasswordScreen = ({ navigation }) => {
-  const [phone, setPhone] = useState({ value: '', error: '' });
-  const [account, setAccount] = useState({ value: '', error: '' });
+const ForgotPasswordScreen = ({navigation}) => {
+  const [phone, setPhone] = useState({value: '', error: ''});
+  const [account, setAccount] = useState({value: '', error: ''});
 
   const _onSendPressed = () => {
     const phoneError = phoneValidator(phone.value);
     const accountError = accountValidator(account.value);
 
     if (phoneError) {
-      setPhone({ ...phone, error: phoneError });
-      setAccount({ ...account, error: accountError });
+      setPhone({...phone, error: phoneError});
+      setAccount({...account, error: accountError});
       return;
     }
 
@@ -38,7 +38,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         label="Phone"
         returnKeyType="next"
         value={phone.value}
-        onChangeText={text => setPhone({ value: text, error: '' })}
+        onChangeText={text => setPhone({value: text, error: ''})}
         error={!!phone.error}
         errorText={phone.error}
         autoCapitalize="none"
@@ -51,7 +51,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
         label="Account"
         returnKeyType="done"
         value={account.value}
-        onChangeText={text => setAccount({ value: text, error: '' })}
+        onChangeText={text => setAccount({value: text, error: ''})}
         error={!!account.error}
         errorText={account.error}
         autoCapitalize="none"
@@ -65,8 +65,7 @@ const ForgotPasswordScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={styles.back}
-        onPress={() => navigation.navigate('LoginScreen')}
-      >
+        onPress={() => navigation.navigate('LoginScreen')}>
         <Text style={styles.label}>← Back to login</Text>
       </TouchableOpacity>
     </Background>

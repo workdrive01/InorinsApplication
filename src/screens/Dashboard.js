@@ -3,17 +3,18 @@ import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 
 import HeaderButton from '../components/HeaderButton';
+import {CATEGORIES} from '../data/dummy-data';
 import GridTile from '../components/GridTile';
 
 const Dashboard = props => {
   const renderGridItem = itemData => {
     return (
       <GridTile
-        // title={itemData.item.title}
-        // color={itemData.item.color}
+        title={itemData.item.title}
+        color={itemData.item.color}
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'PageNotFound',
+            routeName: 'DetailScreen',
             params: {
               categoryId: itemData.item.id,
             },
@@ -26,7 +27,7 @@ const Dashboard = props => {
   return (
     <FlatList
       keyExtractor={(item, index) => item.id}
-      data="rerere"
+      data={CATEGORIES}
       renderItem={renderGridItem}
       numColumns={2}
     />

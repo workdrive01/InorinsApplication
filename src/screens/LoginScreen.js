@@ -1,25 +1,25 @@
-import React, { memo, useState } from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import React, {memo, useState} from 'react';
+import {TouchableOpacity, StyleSheet, Text, View} from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
-import { theme } from '../core/theme';
-import { usernameValidator, passwordValidator } from '../core/utils';
+import {theme} from '../core/theme';
+import {usernameValidator, passwordValidator} from '../core/utils';
 
-const LoginScreen = ({ navigation }) => {
-  const [username, setUsername] = useState({ value: '', error: '' });
-  const [password, setPassword] = useState({ value: '', error: '' });
+const LoginScreen = ({navigation}) => {
+  const [username, setUsername] = useState({value: '', error: ''});
+  const [password, setPassword] = useState({value: '', error: ''});
 
   const _onLoginPressed = () => {
     const usernameError = usernameValidator(username.value);
     const passwordError = passwordValidator(password.value);
 
     if (usernameError || passwordError) {
-      setUsername({ ...username, error: usernameError });
-      setPassword({ ...password, error: passwordError });
+      setUsername({...username, error: usernameError});
+      setPassword({...password, error: passwordError});
       return;
     }
 
@@ -28,7 +28,7 @@ const LoginScreen = ({ navigation }) => {
 
   state = {
     data: [],
-  }
+  };
 
   return (
     <Background>
@@ -42,7 +42,7 @@ const LoginScreen = ({ navigation }) => {
         label="Username"
         returnKeyType="next"
         value={username.value}
-        onChangeText={text => setUsername({ value: text, error: '' })}
+        onChangeText={text => setUsername({value: text, error: ''})}
         error={!!username.error}
         errorText={username.error}
         autoCapitalize="none"
@@ -55,7 +55,7 @@ const LoginScreen = ({ navigation }) => {
         label="Password"
         returnKeyType="done"
         value={password.value}
-        onChangeText={text => setPassword({ value: text, error: '' })}
+        onChangeText={text => setPassword({value: text, error: ''})}
         error={!!password.error}
         errorText={password.error}
         secureTextEntry
@@ -63,8 +63,7 @@ const LoginScreen = ({ navigation }) => {
 
       <View style={styles.forgotPassword}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('ForgotPasswordScreen')}
-        >
+          onPress={() => navigation.navigate('ForgotPasswordScreen')}>
           <Text style={styles.label}>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
