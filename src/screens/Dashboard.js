@@ -1,21 +1,61 @@
-import React, { memo } from 'react';
-import Background from '../components/Background';
-import Logo from '../components/Logo';
-import Header from '../components/Header';
-import Paragraph from '../components/Paragraph';
-import Button from '../components/Button';
+import React from 'react';
+import {View, Text, FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {HeaderButtons, Item} from 'react-navigation-header-buttons';
 
-const Dashboard = ({ navigation }) => (
-  <Background>
-    <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      User Information
-    </Paragraph>
-    <Button mode="outlined" onPress={() => navigation.navigate('HomeScreen')}>
-      Logout
-    </Button>
-  </Background>
-);
+import HeaderButton from '../components/HeaderButton';
+import GridTile from '../components/GridTile';
 
-export default memo(Dashboard);
+const Dashboard = props => {
+  const renderGridItem = itemData => {
+    return (
+      <GridTile
+        // title={itemData.item.title}
+        // color={itemData.item.color}
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: 'PageNotFound',
+            params: {
+              categoryId: itemData.item.id,
+            },
+          });
+        }}
+      />
+    );
+  };
+
+  return (
+    <FlatList
+      keyExtractor={(item, index) => item.id}
+      data="rerere"
+      renderItem={renderGridItem}
+      numColumns={2}
+    />
+  );
+};
+
+Dashboard.navigationOptions = navData => {
+  return {
+    headerTitle: 'Dashboard Categories',
+    headerLeft: (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+  };
+};
+
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default Dashboard;

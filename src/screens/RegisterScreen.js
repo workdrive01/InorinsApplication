@@ -1,28 +1,25 @@
-import React, { memo, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, {memo, useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import TextInput from '../components/TextInput';
 import BackButton from '../components/BackButton';
-import { theme } from '../core/theme';
-import {
-  phoneValidator,
-  accountValidator,
-} from '../core/utils';
+import {theme} from '../core/theme';
+import {phoneValidator, accountValidator} from '../core/utils';
 
-const RegisterScreen = ({ navigation }) => {
-  const [phone, setPhone] = useState({ value: '', error: '' });
-  const [account, setAccount] = useState({ value: '', error: '' });
+const RegisterScreen = ({navigation}) => {
+  const [phone, setPhone] = useState({value: '', error: ''});
+  const [account, setAccount] = useState({value: '', error: ''});
 
   const _onSignUpPressed = () => {
     const phoneError = phoneValidator(phone.value);
     const accountError = accountValidator(account.value);
 
     if (accountError || phoneError) {
-      setPhone({ ...phone, error: phoneError });
-      setAccount({ ...account, error: accountError });
+      setPhone({...phone, error: phoneError});
+      setAccount({...account, error: accountError});
       return;
     }
 
@@ -41,7 +38,7 @@ const RegisterScreen = ({ navigation }) => {
         label="Phone"
         returnKeyType="next"
         value={phone.value}
-        onChangeText={text => setPhone({ value: text, error: '' })}
+        onChangeText={text => setPhone({value: text, error: ''})}
         error={!!phone.error}
         errorText={phone.error}
         autoCapitalize="none"
@@ -53,7 +50,7 @@ const RegisterScreen = ({ navigation }) => {
         label="Account"
         returnKeyType="done"
         value={account.value}
-        onChangeText={text => setAccount({ value: text, error: '' })}
+        onChangeText={text => setAccount({value: text, error: ''})}
         error={!!account.error}
         errorText={account.error}
         autoCapitalize="none"
