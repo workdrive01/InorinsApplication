@@ -21,7 +21,7 @@ const DetailScreen = props => {
 
   return (
     <ScrollView>
-      <Image source={{uri: selectedAccount.imageUrl}} style={styles.image} />
+      {/* <Image source={{uri: selectedAccount.imageUrl}} style={styles.image} /> */}
       <View style={styles.details}>
         <DefaultText>{selectedAccount.duration}m</DefaultText>
         <DefaultText>{selectedAccount.complexity.toUpperCase()}</DefaultText>
@@ -43,7 +43,7 @@ DetailScreen.navigationOptions = navigationData => {
   const accountId = navigationData.navigation.getParam('accountId');
   const selectedAccount = ACCOUNTS.find(account => account.id === accountId);
   return {
-    headerTitle: selectedAccount.title,
+    // headerTitle: selectedAccount.title,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item

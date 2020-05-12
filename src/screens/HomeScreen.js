@@ -5,6 +5,7 @@ import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import Paragraph from '../components/Paragraph';
+import ImageSlider from '../components/ImageSlider';
 
 const HomeScreen = ({navigation}) => (
   <Background>
@@ -13,6 +14,7 @@ const HomeScreen = ({navigation}) => (
       Welcome to {'\n'}
       Guheshowri Merchant Banking & Finance Limited
     </Paragraph>
+    <ImageSlider />
     <Header>Mobile Banking</Header>
 
     <Button mode="contained" onPress={() => navigation.navigate('LoginScreen')}>

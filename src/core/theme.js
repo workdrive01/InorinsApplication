@@ -7,5 +7,6 @@ export const theme = {
     primary: '#04a3bf',
     secondary: '#414757',
     error: '#f13a59',
+    normal: '#ffffff',
   },
 };
