@@ -20,12 +20,11 @@ export default class ImageSlider extends React.Component {
           backgroundColor: 'floralwhite',
           borderRadius: 5,
           height: 225,
-          padding: 50,
+          paddingLeft: 50,
           marginLeft: 15,
           marginRight: 15,
         }}>
-        <Text style={{fontSize: 30}}>{item}</Text>
-        <Image source={require('../assets/logo.png')} />
+        <Text style={{fontSize: 30, paddingLeft: 90}}>{item}</Text>
       </View>
     );
   }
