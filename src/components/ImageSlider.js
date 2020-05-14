@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Text, View, SafeAreaView, Image} from 'react-native';
+import {ACCOUNTS} from '../data/dummy-data';
 
 import Carousel from 'react-native-snap-carousel';
 
@@ -8,29 +9,7 @@ export default class ImageSlider extends React.Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      carouselItems: [
-        {
-          title: 'Item 1',
-          text: 'Text 1',
-        },
-        {
-          title: 'Item 2',
-          text: 'Text 2',
-        },
-        {
-          title: 'Item 3',
-          text: 'Text 3',
-        },
-        {
-          title: 'Item 4',
-          text: 'Text 4',
-          image: 'https://source.unsplash.com/1024x768/?tree',
-        },
-        {
-          title: 'Item 5',
-          text: 'Text 5',
-        },
-      ],
+      carouselItems: ['Item 1', 'Item 2', 'Item 3', 'Text 4'],
     };
   }
 
@@ -45,16 +24,15 @@ export default class ImageSlider extends React.Component {
           marginLeft: 15,
           marginRight: 15,
         }}>
-        <Text style={{fontSize: 30}}>{item.title}</Text>
-        <Text>{item.text}</Text>
+        <Text style={{fontSize: 30}}>{item}</Text>
+        <Image source={require('../assets/logo.png')} />
       </View>
     );
   }
 
   render() {
     return (
-      <SafeAreaView
-        style={{flex: 1, backgroundColor: 'transparent'}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'transparent'}}>
         <View style={{flex: 1, flexDirection: 'row'}}>
           <Carousel
             layout={'default'}

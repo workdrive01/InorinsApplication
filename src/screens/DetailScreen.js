@@ -50,7 +50,7 @@ DetailScreen.navigationOptions = navigationData => {
           title="Favorite"
           iconName="ios-star"
           onPress={() => {
-            console.log('Mark as favorite!');
+            console.log('Mark');
           }}
         />
       </HeaderButtons>
